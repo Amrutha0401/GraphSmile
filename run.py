@@ -118,8 +118,6 @@ parser.add_argument('--Data_path', default='./data', help='data directory to tra
 args = parser.parse_args()
 
 os.environ["MASTER_ADDR"] = "localhost"
-os.environ["MASTER_PORT"] = args.port
-os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 world_size = torch.cuda.device_count()
 os.environ["WORLD_SIZE"] = str(world_size)
 
