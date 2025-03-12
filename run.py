@@ -30,8 +30,7 @@ parser.add_argument("--no_cuda",
                     action="store_true",
                     default=False,
                     help="does not use GPU")
-parser.add_argument("--gpu", default="2", type=str, help="GPU ids")
-parser.add_argument("--port", default="15301", help="MASTER_PORT")
+
 parser.add_argument("--classify", default="emotion", help="sentiment, emotion")
 parser.add_argument("--lr",
                     type=float,
@@ -114,6 +113,7 @@ parser.add_argument(
     default=[1.0, 1.0, 1.0],
     help="[loss_emotion, loss_sentiment, loss_shift]",
 )
+ parser.add_argument('--Data_path', default='./data', help='data directory to train and test')
 
 args = parser.parse_args()
 
@@ -123,7 +123,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 world_size = torch.cuda.device_count()
 os.environ["WORLD_SIZE"] = str(world_size)
 
-MELD_path = ""
+MELD_path = args.Data_path 
 IEMOCAP_path = ""
 IEMOCAP4_path = ""
 CMUMOSEI7_path = ""
