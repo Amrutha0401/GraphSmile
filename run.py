@@ -113,7 +113,7 @@ parser.add_argument(
     default=[1.0, 1.0, 1.0],
     help="[loss_emotion, loss_sentiment, loss_shift]",
 )
- parser.add_argument('--Data_path', default='./data', help='data directory to train and test')
+parser.add_argument('--Data_path', default='./data', help='data directory to train and test')
 
 args = parser.parse_args()
 
